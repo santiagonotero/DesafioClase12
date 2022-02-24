@@ -10,37 +10,37 @@
 </head>
 <body>
     <div><p>Ingrese un producto</p>
-        <form action="/" method="post">
+        <form onsubmit="return addProduct(this)">
             <div>
                 <label for="title">Artículo</label>
-                <input name="title" type="text">
+                <input name="title" id="title" type="text">
             </div>
             <div>
                 <label for="price">Precio</label>
-                <input name="price" type="number">
+                <input name="price" id="price" type="number">
             </div>
             <div color="gray">
                 <label for="thumbnail">Link de la imagen</label>
-                <input name="thumbnail" type="text">
+                <input name="thumbnail" id="thumbnail" type="text">
             </div>
             <div>
                 <button type="submit">Enviar</button>
             </div>
         </form>
     </div>
-    <div><p>Listado de productos disponibles</p>
+    <div><h1>Listado de productos disponibles</h1>
         <div id="listado"></div>
     </div>
-    <div><p>Centro de mensajes</p>
+    <div><h2>Centro de mensajes</h2>
         <div id="messagePool" ></div>
-    <form action="/" method="post">
+    <form onsubmit="return addMessage(this)">
         <div>
             <label for="userName">Nombre de usuario</label>
-            <input name="userName" type="text">
+            <input name="userName" id="userName" type="text">
         </div>
         <div>
             <label for="userMessage">Mensaje</label>
-            <input name="userMessage" type="text">
+            <input name="userMessage" id="userMessage" type="text">
         </div>
         <div>
             <button type="submit">Enviar Mensaje</button>
@@ -59,7 +59,7 @@
                 </tr>
             </thead>
             <tbody>
-                {{#each item}}
+                {{#each items}}
                 <tr>
                     <td>{{this.title}}</td>
                     <td>{{this.price}}</td>
@@ -82,10 +82,10 @@
             <tbody>
                 {{#each message}}
                 <tr>
-                    <td>{{message.author}}</td>
-                    <td>{{message.text}}</td>
-                    <td>{{message.date}}</td>
-                    <td>{{message.time}}</td>
+                    <td>{{this.author}}</td>
+                    <td>{{this.text}}</td>
+                    <td>{{this.date}}</td>
+                    <td>{{this.time}}</td>
                 </tr>
                 {{/each}}
             </tbody>
